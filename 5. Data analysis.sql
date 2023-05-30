@@ -1,10 +1,9 @@
 -- Total number of rides per bike.
 SELECT member_casual, rideable_type, COUNT(*) AS no_rides_per_bike
 FROM clean_merged_data
-GROUP BY member_casual, rideable_type		--member(electric bike: 870,567, classic bike: 1,670,535), 
-											--casual(docked bike: 172,767, classic bike; 871,617, electric bike: 677,802)
-											--we can see that member riders used classic bikes than electric bikes and didn't use docked bikes at all.
-											--while casual riders used classic bikes than both electric and docked bikes.
+GROUP BY member_casual, rideable_type		 
+											
+											
 
 -- Number of trips per month
 SELECT month,member_casual, COUNT(ride_id) AS rides_per_month
