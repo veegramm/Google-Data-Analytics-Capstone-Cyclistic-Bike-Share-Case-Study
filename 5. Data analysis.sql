@@ -9,12 +9,13 @@ GROUP BY member_casual, rideable_type
 SELECT month,member_casual, COUNT(ride_id) AS rides_per_month
 FROM clean_merged_data
 GROUP BY month, member_casual
-ORDER BY month, member_casual
+ORDER BY month  DESC, member_casual
 
 --Number of trips per week
 SELECT day_of_week, member_casual, COUNT(ride_id) AS rides_per_week
 FROM clean_merged_data
-GROUP BY day_of_week, member_casual	
+GROUP BY day_of_week, member_casual
+ORDER BY day_of_week DESC
 
 --Number of trips per hour
 SELECT start_hour, member_casual, COUNT(ride_id) AS rides_per_hour
@@ -40,7 +41,7 @@ GROUP BY start_hour		--	result is in minutes
 SELECT Month, COUNT(ride_length) as monthly_trips
 FROM clean_merged_data
 GROUP BY Month
-ORDER BY monthly_trips DESC		--july has the most with 626834 rides
+ORDER BY monthly_trips DESC		
 
 -- what time of the day did most trips start?
 SELECT DATEPART(hour, start_time) as start_hour, COUNT(*) as NumTrips
@@ -85,7 +86,7 @@ ORDER BY num_of_trips DESC		--Streeter Dr & Grand Ave is the most used start sta
 SELECT end_station_name, COUNT(*) AS num_of_trips
 FROM clean_merged_data
 GROUP BY end_station_name
-ORDER BY num_of_trips DESC	--Streeter Dr & Grand Ave is the most used start station.
+ORDER BY num_of_trips DESC	--Streeter Dr & Grand Ave is the most used end station.
 
 
 
